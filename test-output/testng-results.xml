@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Opened Home Page]]>
+    </line>
+    <line>
+      <![CDATA[Opened Login page]]>
+    </line>
+    <line>
+      <![CDATA[Login SuccessfulPriyanka]]>
+    </line>
+    <line>
+      <![CDATA[Flight_Booking_Page_Opened]]>
+    </line>
+    <line>
+      <![CDATA[Journey_details_filled_in_Navigating_to_Flight_Selection]]>
+    </line>
+    <line>
+      <![CDATA[FlightConfirmation]]>
+    </line>
+    <line>
+      <![CDATA[Payment_mode_selected]]>
+    </line>
+    <line>
+      <![CDATA[Booking_Confirmation_Pending]]>
+    </line>
+    <line>
+      <![CDATA[Booking_Confirmed]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2022-12-23T12:41:32 IST" name="Default suite" finished-at="2022-12-23T12:42:21 IST" duration-ms="48926">
+    <groups>
+    </groups>
+    <test started-at="2022-12-23T12:41:32 IST" name="Default test" finished-at="2022-12-23T12:42:21 IST" duration-ms="48926">
+      <class name="testcase_suite.UserLoginAndFlightBookingVerification">
+        <test-method signature="initializeHomePage()[pri:0, instance:testcase_suite.UserLoginAndFlightBookingVerification@378542de]" started-at="2022-12-23T12:41:32 IST" name="initializeHomePage" finished-at="2022-12-23T12:41:48 IST" duration-ms="15646" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Opened Home Page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initializeHomePage -->
+        <test-method signature="loggingInUser()[pri:0, instance:testcase_suite.UserLoginAndFlightBookingVerification@378542de]" started-at="2022-12-23T12:41:48 IST" name="loggingInUser" finished-at="2022-12-23T12:41:56 IST" depends-on-methods="testcase_suite.UserLoginAndFlightBookingVerification.initializeHomePage" duration-ms="7767" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Opened Login page]]>
+            </line>
+            <line>
+              <![CDATA[Login SuccessfulPriyanka]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- loggingInUser -->
+        <test-method signature="xflightBooking()[pri:0, instance:testcase_suite.UserLoginAndFlightBookingVerification@378542de]" started-at="2022-12-23T12:41:56 IST" name="xflightBooking" finished-at="2022-12-23T12:42:21 IST" depends-on-methods="testcase_suite.UserLoginAndFlightBookingVerification.loggingInUser" duration-ms="25422" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Flight_Booking_Page_Opened]]>
+            </line>
+            <line>
+              <![CDATA[Journey_details_filled_in_Navigating_to_Flight_Selection]]>
+            </line>
+            <line>
+              <![CDATA[FlightConfirmation]]>
+            </line>
+            <line>
+              <![CDATA[Payment_mode_selected]]>
+            </line>
+            <line>
+              <![CDATA[Booking_Confirmation_Pending]]>
+            </line>
+            <line>
+              <![CDATA[Booking_Confirmed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- xflightBooking -->
+      </class> <!-- testcase_suite.UserLoginAndFlightBookingVerification -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
