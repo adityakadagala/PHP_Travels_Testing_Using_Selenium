@@ -29,7 +29,7 @@ public class FlightBookingPage {
 	By departuredate= By.xpath("//*[@id=\"fadein\"]/div[7]/div[1]/table/tbody/tr[5]/td[2]");
 	
 	//Flight details
-	By earliestflight= By.xpath("//*[@id=\"data\"]/ul/li[1]/div/form/div/div[2]/div/button");
+	By earliestflight= By.xpath("//*[@id=\"data\"]/ul/li[2]/div/form/div/div[2]/div/button/span");
 	
 	//passenger 1 variables
 	By passenger1designation= By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/select");

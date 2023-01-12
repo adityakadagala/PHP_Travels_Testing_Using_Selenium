@@ -1,9 +1,12 @@
 package testcase_suite;
 
 import java.io.IOException;
+
+
 import org.testng.annotations.Test;
 import browserImplementation.LaunchingBrowser;
 import utilities.Configurations;
+import utilities.RegistrationsDataProvider;
 import webpages.HomePage;
 import webpages.RegistrationPage;
 
@@ -25,14 +28,26 @@ public class UserRegistrationVerification {
     public void navigateToRegistrationPage() throws InterruptedException, IOException
     {
     	//instantiating registration page
-    	rp= new RegistrationPage(hp.getHomePageDriver());    	
+    	rp= new RegistrationPage(hp.getHomePageDriver());
     }
     
-    @Test(dependsOnMethods="navigateToRegistrationPage")
+    @Test(dependsOnMethods="navigateToRegistrationPage", dataProvider="registrationData" , dataProviderClass=RegistrationsDataProvider.class, enabled=false )
+    public void registeringUserwithDataProvider(String fname, String lname, String phno, String email, String password) throws InterruptedException, IOException
+    {
+  
+    	//Registering user using Data Provider
+    	rp.registeringUserUsingDataProvider(fname, lname, phno, email, password);
+    	
+    	//method call to close browser
+    	rp.closingBrowser();
+    	
+    }
+    
+    @Test(dependsOnMethods="navigateToRegistrationPage", enabled=true)
     public void registeringUser() throws InterruptedException, IOException
     {
-    	//Registering user 
-    	rp.registeringUserWithValidData();
+    	//Registering user using Excel Sheet
+    	rp.registeringUserWithValidExcelData();
     	
     	//method call to verify user registration
     	rp.verifyingUserRegistration();

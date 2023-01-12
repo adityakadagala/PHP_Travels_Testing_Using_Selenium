@@ -43,7 +43,7 @@ public class RegistrationPage {
 	}
 	
 	
-	public void registeringUserWithValidData() throws InterruptedException, IOException
+	public void registeringUserWithValidExcelData() throws InterruptedException, IOException
     {
     	//using excel sheet to read data to proceed with registration
 		ecr=new ExcelConfigurations();
@@ -59,10 +59,42 @@ public class RegistrationPage {
         
         Select accounttype=new Select(driver.findElement(By.xpath("//*[@id=\"account_type\"]")));
        accounttype.selectByVisibleText("Customer");
-        Thread.sleep(15000);
+        Thread.sleep(150000);
         
         driver.findElement(submit).click();
     }
+	
+	public void registeringUserUsingDataProvider(String fname, String lname, String phno, String emailid, String pass) throws InterruptedException
+	{
+		driver.findElement(firstName).sendKeys(fname);
+	       
+        driver.findElement(lastName).sendKeys(lname);
+        
+        driver.findElement(phone).sendKeys(phno);
+        
+        driver.findElement(email).sendKeys(emailid);
+                
+        driver.findElement(password).sendKeys(pass);
+        
+        Select accounttype=new Select(driver.findElement(By.xpath("//*[@id=\"account_type\"]")));
+       accounttype.selectByVisibleText("Customer");
+        Thread.sleep(50000);
+        
+        driver.findElement(submit).click();
+        
+        if(driver.findElement(signinMessage).isDisplayed()==true)
+		{
+			//On successful sign up			
+			String signupstatus= driver.findElement(signinMessage).getText();
+			Assert.assertEquals(signupstatus, "Signup successfull please login.");
+			System.out.println(signupstatus);		
+			Reporter.log(signupstatus+" (Successfully registered)");
+		}
+        
+        //navigating back to signup page
+        driver.findElement(account).click();   
+        driver.findElement(signup).click();
+	}
 	
 	public void verifyingUserRegistration() throws IOException, InterruptedException 
 	{

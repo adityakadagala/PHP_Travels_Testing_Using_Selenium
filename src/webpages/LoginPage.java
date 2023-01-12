@@ -58,6 +58,35 @@ public class LoginPage {
 		driver.findElement(submit).click();		
 	}
 	
+	public void verifyLoginOnValidData() throws IOException, InterruptedException
+	{
+		//verifying user login
+		Thread.sleep(2000);
+			//On successful Login
+			//screenshot showing login status
+			cr.takeScreenShot("LoginStatus", driver);
+			
+			String username=driver.findElement(By.xpath("//*[@id='fadein']/section[1]/div/div[1]/div/div[1]/div[1]/div/div/h2/span")).getText();
+			Assert.assertEquals(username, "Priyanka");
+			System.out.println("Login Successful "+username);
+			Reporter.log("Login Successful"+username);
+	
+	}
+	
+	public void verifyLoginOnInvalidData() throws IOException
+	{
+		if(driver.findElement(By.xpath(
+				  "//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/div")).isDisplayed()==true)
+				  { //On Login failure //screenshot showing login status
+				  cr.takeScreenShot("LoginStatus", driver);
+				  
+				  String failedlogin=driver.findElement(By.xpath(
+				  "//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/div")).getText();
+				  Assert.assertEquals(failedlogin, "Wrong credentials. try again!");
+				  System.out.println(failedlogin); Reporter.log(failedlogin); driver.quit(); }
+				 
+	}
+	
 	public void verifyLogin() throws IOException, InterruptedException
 	{
 		//verifying user login
@@ -71,17 +100,16 @@ public class LoginPage {
 			System.out.println("Login Successful "+username);
 			Reporter.log("Login Successful"+username);
 		
-			/*
-			 * if(driver.findElement(By.xpath(
-			 * "//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/div")).isDisplayed()==true)
-			 * { //On Login failure //screenshot showing login status
-			 * cr.takeScreenShot("LoginStatus", driver);
-			 * 
-			 * String failedlogin=driver.findElement(By.xpath(
-			 * "//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/div")).getText();
-			 * Assert.assertEquals(failedlogin, "Wrong credentials. try again!");
-			 * System.out.println(failedlogin); Reporter.log(failedlogin); driver.quit(); }
-			 */
+			
+			  if(driver.findElement(By.xpath(
+			  "//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/div")).isDisplayed()==true)
+			  { //On Login failure //screenshot showing login status
+			  cr.takeScreenShot("LoginStatus", driver);
+			  
+			  String failedlogin=driver.findElement(By.xpath(
+			  "//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/div")).getText();
+			  Assert.assertEquals(failedlogin, "Wrong credentials. try again!");
+			  System.out.println(failedlogin); Reporter.log(failedlogin); driver.quit(); }
+			 
 	}
-	
 }

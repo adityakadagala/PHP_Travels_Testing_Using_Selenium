@@ -25,15 +25,22 @@ public class UserLoginAndFlightBookingVerification {
     }
     
     @Test(dependsOnMethods="initializeHomePage")
-	public void loggingInUser() throws InterruptedException, IOException
+	public void loggingInUserWithValidData() throws InterruptedException, IOException
 	{
     	//Login Process
 		lp=new LoginPage(hp.getHomePageDriver());
 		lp.LoggingInUser();
-		lp.verifyLogin();
+		lp.verifyLoginOnValidData();
 	}
 	
-	@Test(dependsOnMethods="loggingInUser")
+    @Test
+    public void loggingInUserWithInvalidData() throws IOException, InterruptedException
+    {
+    	lp=new LoginPage(hp.getHomePageDriver());
+		lp.LoggingInUser();
+		lp.verifyLoginOnInvalidData();
+    }
+	@Test(dependsOnMethods="loggingInUser", enabled=false)
 	  public void xflightBooking() throws InterruptedException, IOException {
 	  //Navigating to Flight Booking on successful login
 	  fb=new FlightBookingPage(lp.getLoginPageDriver()); 

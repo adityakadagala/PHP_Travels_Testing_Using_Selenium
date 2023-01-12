@@ -3,12 +3,15 @@ package utilities;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.DataProvider;
 
 
 //Reading data from object repository
@@ -64,7 +67,12 @@ public class Configurations {
 	 public void takeScreenShot(String fileName, WebDriver driver) throws IOException 
 	 {
 		 File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		 FileUtils.copyFile(file, new File("/home/ubuntu/Desktop/Training/PHPTravels_Testing_Using_Selenium/screenshots/"+fileName+".png")); 
+		 FileUtils.copyFile(file, new File("/home/ubuntu/Desktop/Training/PHPTravels_Testing_Using_Selenium/screenshots/"+fileName+"_"+timeStamp()+".png")); 
+	 }
+	 
+	 public String timeStamp()
+	 {
+		 return new SimpleDateFormat("yyyy-MM-DD-HH-mm-ss").format(new Date());
 	 }
 
 }
